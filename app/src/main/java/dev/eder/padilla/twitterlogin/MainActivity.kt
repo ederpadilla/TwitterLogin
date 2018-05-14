@@ -1,5 +1,6 @@
 package dev.eder.padilla.twitterlogin
 
+import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ import com.twitter.sdk.android.core.DefaultLogger
 import com.twitter.sdk.android.core.TwitterConfig
 import com.twitter.sdk.android.core.TwitterException
 import com.twitter.sdk.android.core.TwitterCore
+import com.twitter.sdk.android.core.internal.TwitterApiConstants
 import com.twitter.sdk.android.core.models.User
 
 
@@ -57,7 +59,10 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    override fun onActivityResult(requestCode: Int, responseCode: Int, intent: Intent) {
-        mTwitterAuthClient.onActivityResult(requestCode, responseCode, intent)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode ==  140 && resultCode == Activity.RESULT_OK){
+            mTwitterAuthClient.onActivityResult(requestCode, resultCode, intent)
+        }
     }
 }
