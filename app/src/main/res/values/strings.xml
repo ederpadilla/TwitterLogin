@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TwitterLogin</string>
+    <string name="facebook_app_id">524587771269545</string>
+    <string name="fb_login_protocol_scheme">fb524587771269545</string>
 </resources>
